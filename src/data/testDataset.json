@@ -1,0 +1,37 @@
+[
+  {
+    "project_id": 1,
+    "name": "Simple Blog",
+    "tech": "Ruby on Rails",
+    "description": "Aliens exist",
+    "bullets": "give me;-1254,1212 beers;yes"
+  },
+  {
+    "project_id": 2,
+    "name": "Paint&Chat Online",
+    "tech": "Node.js, Express, WebSockets",
+    "description": "they sell space weed",
+    "bullets": "test1;test2;awesome feature"
+  },
+  {
+    "project_id": 3,
+    "name": "Rails URL Shortener/Forwarder",
+    "tech": "Ruby on Rails",
+    "description": "A simple app allowing pasting urls and getting a short identifier in return that will redirect to the provided target.",
+    "bullets": "yeti ballz;test"
+  },
+  {
+    "project_id": 4,
+    "name": "Shooter - Prototype JS Game",
+    "tech": "p5.js",
+    "description": "A descriptive description",
+    "bullets": "yyy;ehmmm"
+  },
+  {
+    "project_id": 4,
+    "name": "Shooter - Prototype JS Game",
+    "tech": "p5.js",
+    "description": "Iorem Lpsum",
+    "bullets": ""
+  }
+]
