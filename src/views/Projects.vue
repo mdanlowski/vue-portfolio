@@ -1,6 +1,6 @@
 <template lang='pug'>
-  div.home
-    div.md-home-header
+  div#projects.animated.fadeIn
+    div
     div
       projects-gallery
 
@@ -21,9 +21,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.md-home-header {
-  h1 {
-    text-align: center;
-  }
-}
 </style>

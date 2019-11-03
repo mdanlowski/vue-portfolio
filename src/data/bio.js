@@ -1,12 +1,14 @@
 const bio = {
-  TITLE: "Software Developer",
+  TITLE: "Software Developer | Educator | Neuroscience Enthusiast",
   DESCR: `
-  Mechatronics Engineer turned Programmer.
-  Ruby on Rails developer.
-  My main focus in self-development are Ruby, Rails, JavaScript (Vue, Node, React), Python and shells.
+  Mechatronics Engineer, Programmer.
+  Currently pursuing high profficiency in Ruby and Rails.
+  Besides that, my areas of focus in self-development are JavaScript (Vue, Node, React),
+  Python and various shells (unix shells, PowerShell, AppleScript).
   I enjoy building front-end for the kicks and tinkering with hobby electronics in spare time.
-  My other interests are biology, neuroscience, machine learning (artificial neural networks, deep learning),
-  robotics, archeology, languages, music and Space.
+  My non-professional fields of interests are biology, neuroscience, machine learning
+  (artificial neural networks, deep learning), robotics, archeology, languages, music and Space.
+  I enjoy playing a guitar and piano and beginning my adventure with digital art.
   `,
   CURR_AREA: "Ruby on Rails & Vue.js",
   COMPANY: "Roomzilla / Cambridge Innovation Center"
