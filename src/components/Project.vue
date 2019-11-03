@@ -16,7 +16,7 @@ div.md-project-box
 
     div.proj-image
       .overlay
-      img(v-bind:src="require(`../assets/${(projectDataObject.imgPath)}`)")
+      img(v-bind:src="safeImgSrc")
       
   div.footer
     div.tech-icons
@@ -31,12 +31,9 @@ export default {
   props: [ 'projectDataObject' ],
   data(){
     return {
-      thisX: null,
-      thisY: null,
     }
   },
   mounted(){
-    // this.$refs.projImage.style.backgroundImage = 
   },
   methods: {
     
@@ -48,8 +45,12 @@ export default {
     computedIconClasses(){
       return this.projectDataObject.techIcons.split(';')
     },
-    computedImgPath(imgName){
-      return require('../assets/' + imgName)
+    safeImgSrc(){
+      if(this.projectDataObject.imgPath.hasOwnProperty('length')
+          && this.projectDataObject.imgPath.length > 4){
+        return require(`../assets/${(this.projectDataObject.imgPath)}`)
+      }
+      return '';
     }
   },
 

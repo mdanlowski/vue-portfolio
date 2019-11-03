@@ -12,6 +12,7 @@
 <style lang="scss">
 @import url("https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css");
 @import "@/assets/variables";
+@import "@/assets/animate";
 
 /*----------------------scrollbar------------------------*/
 /* width */
@@ -39,7 +40,7 @@
 
 body {
   width: 100vw;
-  margin: 0
+  margin: 0;
 }
 
 #app {
@@ -47,6 +48,10 @@ body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('/noise-bg.png');
+  background-repeat: repeat;
+  background-size: 10%;
+  background-blend-mode: saturation;
   background-color: $dark-blue;
 }
 
@@ -55,11 +60,11 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   // text-align: center;
-  height: 35px;
+  height: 22px;
 
   .nav-block {
     text-transform: uppercase;
-    font-size: 25px;
+    font-size: 16px;
     padding-top: 5px;
     &:hover { background-color: $darkest-main; }
     width: 100%;
@@ -67,7 +72,7 @@ body {
     background-color: $blue-gray;
     text-align: center;
     &.router-link-exact-active {
-      background-color: $transparent-dark-main;
+      border-bottom: 4px solid $transparent-dark-main;
     }
   }
   a {

@@ -1,6 +1,8 @@
 <template lang='pug'>
   div.home
-    div.md-home-header Hujaja
+    div.md-home-header
+    div
+      projects-gallery
 
 </template>
 
@@ -8,7 +10,10 @@
 import ProjectsGallery from '@/components/ProjectsGallery';
 
 export default {
-  name: 'home',
+  name: 'projects',
+  components: {
+    ProjectsGallery
+  },
   data(){
     return {}
   }
