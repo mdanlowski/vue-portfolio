@@ -1,3 +1,5 @@
+/* @BACKUP, original for data on gsheets-db */
+
 const bio = {
   TITLE: "Software Developer | Educator | Neuroscience Enthusiast",
   DESCR: `

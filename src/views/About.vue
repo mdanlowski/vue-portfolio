@@ -8,10 +8,10 @@
         h1 About me
         h2.full-name Marcin Danlowski
         div#bio
-          p.title {{bio.TITLE}}
-          p.position {{bio.CURR_AREA}}
-          p.company {{bio.COMPANY}}
-          p.descr {{bio.DESCR}}
+          p.title {{parsedBio.TITLE}}
+          p.position {{parsedBio.CURR_AREA}}
+          p.company {{parsedBio.COMPANY}}
+          p.descr {{parsedBio.DESCR}}
         div.md-areas-of-work
           div.md-area.everyday-work(
             v-on:mouseover="selectAndHighlight('usingDailyClasses')"
@@ -38,12 +38,13 @@
 </template>
 
 <script>
-import description from "@/data/bio"
+const noneHighlightedColor = 'crimson';
+const dimOutColor = 'black';
 
 export default {
   data(){
     return {
-      bio: description,
+      bio: this.$store.state.about.bio,
       aboutMeData: this.$store.state.about,
       hoveringOnAny: false
     }
@@ -57,13 +58,13 @@ export default {
       );
       setTimeout(() => {
         if(this.hoveringOnAny) return;
-        document.querySelector('.tile-right').style.color = "crimson";
+        document.querySelector('.tile-right').style.color = noneHighlightedColor;
       }, 1000);
       this.hoveringOnAny = false;
     },
     selectAndHighlight(techIconGroup){
       this.hoveringOnAny = true;
-      document.querySelector('.tile-right').style.color = "black";
+      document.querySelector('.tile-right').style.color = dimOutColor;
       let cssClassNames = this[techIconGroup].map( klass => {return "." + klass })
       for(let klass of cssClassNames){
         let elem = document.querySelector(klass);
@@ -73,11 +74,18 @@ export default {
     }
   },
   computed: {
+    parsedBio() { return JSON.parse(this.bio); },
     allTechClasses() { return this.aboutMeData.allTechnologies.split('\n'); },
     usingDailyClasses() { return this.aboutMeData.usingDaily.split('\n'); },
     learningClasses() { return this.aboutMeData.hobbyLearning.split('\n'); },
     teachingClasses() { return this.aboutMeData.teachingMentoring.split('\n'); },
     operationsClasses() { return this.aboutMeData.systemsAndTools.split('\n'); }
+  },
+  mounted(){
+    setTimeout(() => {
+      if(this.hoveringOnAny) return;
+      document.querySelector('.tile-right').style.color = "crimson";
+    }, 1500);
   }
 }
 </script>
