@@ -2,7 +2,7 @@
   div#app
     nav#navigation
       //- router-link.nav-block(to="/") Home
-      router-link.nav-block(to="/about") About Me
+      router-link.nav-block(to="/") About Me
       router-link.nav-block(to="/projects") Featured Projects
     main
       router-view
