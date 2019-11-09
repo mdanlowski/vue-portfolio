@@ -21,19 +21,15 @@ const routes = [
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
     },
     beforeEnter: (to, from, next) => {
-      if(Object.keys(store.state.about).length > 0) { return next() }
+      if(Object.keys(store.state.about).length > 0) { return next(); }
       fetch(dataEndpointConfig.url(AboutDataSheetRange))
         .then(function(response){ return response.json()})
         .then(function(responseJson){
           store.commit('saveAboutData', responseJson.values);
-          // if(store.state.about.length > 0) {
-            next();
-          // } else {
-          //   alert('Sorry. Failed to fetch the page data.')
-          // }
+          next();
         })
         .catch(function(error){
-          console.log("Server error or unreachable | " + error);
+          alert("Server error or unreachable | " + error);
         }).finally(function(){});
     }
   },
@@ -44,19 +40,15 @@ const routes = [
       return import(/* webpackChunkName: "projects" */ '../views/Projects.vue')
     },
     beforeEnter: (to, from, next) => {
-      if(Object.keys(store.state.projects).length > 0) { return next() }
+      if(Object.keys(store.state.projects).length > 0) { return next(); }
       fetch(dataEndpointConfig.url(ProjectsDataSheetRange))
         .then(function(response){ return response.json()})
         .then(function(responseJson){
           store.commit('saveProjectsData', responseJson.values);
-          // if(store.state.projects.length > 0) {
-            next();
-          // } else {
-          //   alert('Sorry. Failed to fetch the page data.')
-          // }
+          next();
         })
         .catch(function(error){
-          console.log("Server error or unreachable | " + error);
+          alert("Server error or unreachable | " + error);
         }).finally(function(){});
     }
   }

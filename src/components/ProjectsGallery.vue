@@ -22,7 +22,7 @@ export default {
   },
   mounted(){
     setTimeout(() => {
-      document.getElementById('md-revolver').scrollTo(300,0);
+      document.getElementById('md-revolver').scrollTo(100,0);
     }, 200);
   }
 
@@ -72,7 +72,7 @@ export default {
       margin-left: 150px;
     }
     .face {
-      background-color: rgb(0, 7, 46);
+      background-color: $project-face-color;
       height: 100%;
       width: 500px;
       transform: rotateY(30deg);
@@ -90,7 +90,7 @@ export default {
       transform-origin: 0 50%;
       transform: rotateY(-60deg) translateX(-100%);
 
-      background-color: $darker-main;
+      background-color: $darker-main-alt;
       filter: brightness(90%);
       transition: transform 0.5s;
     }

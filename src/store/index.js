@@ -8,7 +8,7 @@ export default new Vuex.Store({
     projects: [],
     about: {}
   },
-  mutations: { /* @TODO dry me */
+  mutations: {
     saveProjectsData(state, fetchedData){
       let keys = fetchedData.shift();
       let body = fetchedData;

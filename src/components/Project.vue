@@ -88,7 +88,10 @@ ul {
     text-decoration: none;
     color: $darker-main;
     &:visited { color: $darker-main; }
-    &:hover { color: $highlight-main; }
+    &:hover {
+      color: $highlight-main;
+      text-decoration: underline;
+    }
   }
 }
 
