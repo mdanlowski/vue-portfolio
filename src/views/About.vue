@@ -13,48 +13,27 @@
           p.company {{bio.COMPANY}}
           p.descr {{bio.DESCR}}
         div.md-areas-of-work
-          div.md-area.everyday-work(v-on:mouseover="selectWork" v-on:mouseleave="deselect") Everyday Work
-          div.md-area.hooby-or-partial Hobby / Learning
-          div.md-area.teaching Teaching / Mentoring
-          div.md-area.teaching Tools / Systems
+          div.md-area.everyday-work(
+            v-on:mouseover="selectAndHighlight('usingDailyClasses')"
+            v-on:mouseleave="deselect"
+          ) Everyday Work
+          div.md-area.hooby-or-partial(
+            v-on:mouseover="selectAndHighlight('learningClasses')"
+            v-on:mouseleave="deselect"
+          ) Hobby / Learning
+          div.md-area.teaching(
+            v-on:mouseover="selectAndHighlight('teachingClasses')"
+            v-on:mouseleave="deselect"
+          ) Teaching / Mentoring
+          div.md-area.teaching(
+            v-on:mouseover="selectAndHighlight('operationsClasses')"
+            v-on:mouseleave="deselect"
+          ) Tools / Systems I use
       .tile-right
         div.technologies-container
-          div
-            i.devicon-ruby-plain
-          div
-            i.devicon-rails-plain
-          div
-            i.devicon-javascript-plain
-          div
-            i.devicon-vuejs-plain
-
-          div
-            i.devicon-react-plain
-          div
-            i.devicon-nodejs-plain
-          div
-            i.devicon-python-plain
-          div
-            i.devicon-d3js-plain
-
-          div
-            i.devicon-java-plain
-          div
-            i.devicon-html5-plain-wordmark
-          div
-            i.devicon-css3-plain-wordmark
-
-          div
-            i.devicon-postgresql-plain
-
-          div
-            i.devicon-webpack-plain
-          div
-            i.devicon-visualstudio-plain
-          div
-            i.devicon-ubuntu-plain
-          div
-            i.devicon-apple-plain
+          div(v-for="item of allTechClasses")
+            i(:class="item")
+          
 
 </template>
 
@@ -65,23 +44,57 @@ export default {
   data(){
     return {
       bio: description,
+      aboutMeData: this.$store.state.about,
+      hoveringOnAny: false
     }
   },
   methods:{
     deselect(){
-      document.querySelectorAll("i").forEach( elem => elem.classList.remove("colored") );
+      document.querySelectorAll("i").forEach( elem => {
+          elem.classList.remove("colored");
+          elem.style.opacity = 0.6;
+        }
+      );
+      setTimeout(() => {
+        if(this.hoveringOnAny) return;
+        document.querySelector('.tile-right').style.color = "crimson";
+      }, 1000);
+      this.hoveringOnAny = false;
     },
-    selectWork(){
-      document.querySelector(".devicon-ruby-plain").classList.add("colored")
-      document.querySelector(".devicon-javascript-plain").classList.add("colored")
-      document.querySelector(".devicon-rails-plain").classList.add("colored")
-      document.querySelector(".devicon-vuejs-plain").classList.add("colored")
+    selectAndHighlight(techIconGroup){
+      this.hoveringOnAny = true;
+      document.querySelector('.tile-right').style.color = "black";
+      let cssClassNames = this[techIconGroup].map( klass => {return "." + klass })
+      for(let klass of cssClassNames){
+        let elem = document.querySelector(klass);
+        elem.classList.add("colored");
+        elem.style.opacity = 1;
+      }
     }
+  },
+  computed: {
+    allTechClasses() { return this.aboutMeData.allTechnologies.split('\n'); },
+    usingDailyClasses() { return this.aboutMeData.usingDaily.split('\n'); },
+    learningClasses() { return this.aboutMeData.hobbyLearning.split('\n'); },
+    teachingClasses() { return this.aboutMeData.teachingMentoring.split('\n'); },
+    operationsClasses() { return this.aboutMeData.systemsAndTools.split('\n'); }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.tile-left {
+  color: chartreuse;
+}
+.tile-right {
+  color: black;
+}
+
+i {
+  transition: opacity 0.5s !important;
+  transition: color 0.8s !important;
+  opacity: 0.6;
+}
 
 .md-areas-of-work {
   font-size: 20px;
@@ -99,9 +112,6 @@ export default {
   }
 }
 
-* {
-  color: chartreuse;
-}
 #md-about-grid {
   * {
     border: 1px solid lime;

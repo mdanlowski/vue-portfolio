@@ -5,13 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    projects: []
+    projects: [],
+    about: {}
   },
-  mutations: {
+  mutations: { /* @TODO dry me */
     saveProjectsData(state, fetchedData){
       let keys = fetchedData.shift();
-      let body = fetchedData
-      let readyState = []
+      let body = fetchedData;
+      let readyState = [];
       for(let arrItem of body){
         let readyProjectItem = {}
         for(let key in keys){
@@ -21,6 +22,16 @@ export default new Vuex.Store({
       }
       
       state.projects = readyState;
+    },
+    saveAboutData(state, fetchedData){
+      let keys = fetchedData.shift();
+      let body = fetchedData;
+      let readyState = {};
+      for(let key in keys){
+        readyState[keys[key]] = body[0][key];
+      }
+      
+      state.about = readyState;
     }
   },
   actions: {

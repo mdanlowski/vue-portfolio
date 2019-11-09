@@ -2,7 +2,7 @@ const bio = {
   TITLE: "Software Developer | Educator | Neuroscience Enthusiast",
   DESCR: `
   Mechatronics Engineer, Programmer.
-  Currently pursuing high profficiency in Ruby and Rails.
+  Currently pursuing profficiency in Ruby and Rails.
   Besides that, my areas of focus in self-development are JavaScript (Vue, Node, React),
   Python and various shells (unix shells, PowerShell, AppleScript).
   I enjoy building front-end for the kicks and tinkering with hobby electronics in spare time.

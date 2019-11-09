@@ -72,7 +72,7 @@ export default {
       margin-left: 150px;
     }
     .face {
-      background-color: black;
+      background-color: rgb(0, 7, 46);
       height: 100%;
       width: 500px;
       transform: rotateY(30deg);

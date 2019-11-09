@@ -93,7 +93,7 @@ ul {
 }
 
 .md-project-box {
-  opacity: 0.5;
+  opacity: 0.7;
   height: 90%;
   display: flex;
   flex-direction: column;
@@ -103,8 +103,8 @@ ul {
   &:hover {
     opacity: 1;
     & > .project-content > .proj-image > img {
-    transition-delay: 1s;
-    opacity: 0.7;
+      transition-delay: 1s;
+      opacity: 0.7;
     }
   }
   .tech-icons {
