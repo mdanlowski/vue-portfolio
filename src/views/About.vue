@@ -15,11 +15,11 @@
             div.md-area.everyday-work(
               v-on:mouseover="selectAndHighlight('usingDailyClasses')"
               v-on:mouseleave="deselect"
-            ) Technologies I build in daily
+            ) Technologies I build with daily
             div.md-area.teaching(
               v-on:mouseover="selectAndHighlight('teachingClasses')"
               v-on:mouseleave="deselect"
-            ) Technologies I teach
+            ) My contributions in Education
             div.md-area.hooby-or-partial(
               v-on:mouseover="selectAndHighlight('learningClasses')"
               v-on:mouseleave="deselect"
@@ -30,8 +30,8 @@
             ) Tools and other systems I know and use
       .tile-right
         div.technologies-container
-          div(v-for="item of allTechClasses")
-            i(:class="item")
+          div(v-for="klass of allTechClasses")
+            i(:class="klass" :title="klass.split('-')[1].toUpperCase()")
 
 </template>
 
@@ -100,10 +100,10 @@ i {
   transition: opacity 0.5s !important;
   transition: color 0.8s !important;
   opacity: 0.6;
+  &:hover { cursor: pointer; }
 }
 
 .job-title.position {
-  font-size: 0.9em;
   display: flex;
   justify-content: space-between;
   font-weight: bold;
@@ -145,7 +145,7 @@ i {
 }
 
 .data {
-  max-width: 600px;
+  max-width: 620px;
 }
 
 .tile-right {
