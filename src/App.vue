@@ -4,6 +4,7 @@
       //- router-link.nav-block(to="/") Home
       router-link.nav-block(to="/") About Me
       router-link.nav-block(to="/projects") Featured Projects
+      router-link.nav-block.minor(to="/art") Art
     main
       router-view
 
@@ -42,6 +43,10 @@ export default {
 @import url("https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css");
 @import "@/assets/variables";
 @import "@/assets/animate";
+
+.minor {
+  width: 20% !important;
+}
 
 ::selection { background: $sf-blue; }
 ::-moz-selection { background: #ffb7b7; }
