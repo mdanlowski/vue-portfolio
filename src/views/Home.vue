@@ -1,6 +1,6 @@
 <template lang='pug'>
   div#home.animated.fadeIn
-    div.md-home-header Hujaja
+    div.md-home-header
 
 </template>
 

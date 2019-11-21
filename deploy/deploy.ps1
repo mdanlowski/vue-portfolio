@@ -8,6 +8,7 @@ rmdir "..\mdanlowski.github.io\img" -Recurse
 
 copy ".\dist\*" "..\mdanlowski.github.io\" -Recurse
 
+# add and commit with timestamp
 git -C "..\mdanlowski.github.io" add .
 $ts = date
 git -C "..\mdanlowski.github.io" commit -am "Portfolio build version: $ts"

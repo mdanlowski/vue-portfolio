@@ -4,7 +4,7 @@
       //- router-link.nav-block(to="/") Home
       router-link.nav-block(to="/") About Me
       router-link.nav-block(to="/projects") Featured Projects
-      router-link.nav-block.minor(to="/art") Art
+      router-link.nav-block.minor(to="/artworks") Artworks
     main
       router-view
 

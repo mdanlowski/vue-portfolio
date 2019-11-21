@@ -1,5 +1,5 @@
 <template lang="pug">
-  .about.animated.fadeIn
+  #about.animated.fadeIn
     div#md-about-grid
       .tile-left
         .data
@@ -91,8 +91,8 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/variables";
 
-.about {
-  margin: 2em 4em;
+#about {
+  margin: $standard-page-margins;
   background-color: $dark-blue;
 }
 
@@ -170,7 +170,7 @@ i {
   }
 }
 
-@media screen and (max-width: 1365px) {
+@media screen and (max-width: 1366px) {
   .data {
     margin-top: -2em !important;
   }
@@ -185,7 +185,7 @@ i {
 }
 
 @media screen and (max-width: 1024px) {
-  .about {
+  #about {
     margin: 0;
     margin-top: 40px;
     width: 100%;

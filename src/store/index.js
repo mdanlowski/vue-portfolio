@@ -6,9 +6,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     projects: [],
-    about: {}
+    about: {},
+    artworks: [],
   },
   mutations: {
+    // @TODO : refactor to saveArrayData and saveObjectData accepting state key to save to
     saveProjectsData(state, fetchedData){
       let keys = fetchedData.shift();
       let body = fetchedData;
@@ -32,7 +34,21 @@ export default new Vuex.Store({
       }
       
       state.about = readyState;
-    }
+    },
+    saveArtworksData(state, fetchedData){
+      let keys = fetchedData.shift();
+      let body = fetchedData;
+      let readyState = [];
+      for(let arrItem of body){
+        let readyItem = {}
+        for(let key in keys){
+          readyItem[keys[key]] = arrItem[key];
+        }
+        readyState.push(readyItem);
+      }
+      
+      state.artworks = readyState;
+    },
   },
   actions: {
   },
