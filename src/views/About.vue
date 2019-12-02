@@ -91,6 +91,13 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/variables";
 
+.devicon-apple-plain.colored {
+  color: whitesmoke !important;
+}
+.devicon-github-plain.colored {
+  color: gray !important;
+}
+
 #about {
   margin: $standard-page-margins;
   background-color: $dark-blue;
