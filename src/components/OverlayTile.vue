@@ -2,13 +2,13 @@
 div.md-overlay-tile(ref="tile")
   div.md-hoverable-overlay(@click="handleClick")
     div.overlay-text {{overlayText}}
-  div.md-hoverable-content
-    slot
+    div.md-hoverable-content(ref="content")
+      slot
 </template>
 
 <script>
 export default {
-  props: ['overlayText', 'sizeX', 'sizeY', 'clickAction'],
+  props: ['overlayText', 'sizeX', 'sizeY', 'clickAction', 'imgAsBackground', 'imgSrc'],
   data(){
     return {
     }
@@ -22,8 +22,12 @@ export default {
     }
   },
   mounted(){
-    this.$refs.tile.style.maxHeight = this.$props.sizeY + "px";
-    this.$refs.tile.style.maxWidth = this.$props.sizeX + "px";
+    this.$refs.tile.style.height = this.$props.sizeY + "px";
+    this.$refs.tile.style.width = this.$props.sizeX + "px";
+
+    if(this.$props.imgAsBackground) {
+      this.$refs.tile.style.background = `url('${this.$props.imgSrc}')`;
+    }
   }
 }
 </script>
@@ -40,20 +44,22 @@ export default {
 
 .md-overlay-tile {
   position: relative;
+  background-position: center !important;
+  background-size: cover !important;
 }
 
 .md-hoverable-overlay {
   position: absolute;
-  background-color: rgba($color: #000000, $alpha: 0.7);
+  background-color: rgba($color: #000000, $alpha: 0.2);
   width: 100%;
   height: 100%;
   z-index: 1000;
   transition: background-color 0.4s;
   &:hover {
     cursor: pointer;
-    background-color: transparent;
+    // background-color: transparent;
+    background-color: rgba($color: #000000, $alpha: 0.9);
     .overlay-text { color: transparent }
-
   }
 
   .overlay-text {
@@ -69,11 +75,27 @@ export default {
   }
 }
 
+
+.md-overlay-tile {
+  &:hover {
+    * {
+      color: $dark-main !important;
+    }
+  }
+}
+
 .md-hoverable-content {
   position: relative;
   // top: 0;
   // left: 0;
-  z-index: -1;
+  z-index: 10;
 }
 
+@media screen and (max-width: 1000px) {
+  .md-overlay-tile {
+    float: none !important;
+    margin: auto;
+    width: 100%;
+  }
+}
 </style>
