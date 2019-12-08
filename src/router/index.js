@@ -6,7 +6,7 @@ import dataEndpointConfig from '@/data/config';
 Vue.use(VueRouter)
 const ProjectsDataSheetRange = 'Projects!B2:I9';
 const AboutDataSheetRange = 'About!B2:G3';
-const ArtworksDataSheetRange = 'Artworks!B2:G5';
+const ArtworksDataSheetRange = 'Artworks!B2:G6';
 
 const routes = [
   {

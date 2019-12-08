@@ -165,6 +165,13 @@ body {
   }
 }
 
+@media screen and (max-width: 500px) {
+  #navigation {
+    .nav-block {
+      font-size: 12px;
+    }
+  }
+}
 
 /*----------------------scrollbar------------------------*/
 /* width */

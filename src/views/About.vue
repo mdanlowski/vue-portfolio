@@ -9,7 +9,9 @@
               span {{parsedBio.TITLE}}
               span {{parsedBio.CURR_AREA}}
             p.company
-              a(href="https://roomzilla.net") {{parsedBio.COMPANY}} &#129157;
+              a(href="https://roomzilla.net")
+                | {{parsedBio.COMPANY}}
+                img.uri-icon(src="/uriIcon.png")
             p.description {{parsedBio.DESCR}}
           div.md-areas-of-work
             div.md-area.everyday-work(
@@ -114,6 +116,13 @@ i {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
+  @media screen and (max-width: 580px) {
+    display: block;
+    span {
+      &:first-child { padding-bottom: 10px; }
+      display: block !important
+    }
+  }
 }
 
 .md-areas-of-work {
@@ -231,6 +240,13 @@ i {
   svg {
     margin-right: 10px;
   }
+}
+
+.uri-icon {
+  margin-left: 4px;
+  margin-bottom: -4px;
+  max-width: 16px;
+  filter: invert(1);
 }
 
 </style>

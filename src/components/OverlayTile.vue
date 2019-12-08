@@ -8,13 +8,14 @@ div.md-overlay-tile(ref="tile")
 
 <script>
 export default {
-  props: ['overlayText', 'sizeX', 'sizeY', 'clickAction', 'imgAsBackground', 'imgSrc'],
+  props: ['overlayText', 'sizeX', 'sizeY', 'clickAction', 'imgAsBackground', 'imgSrc', 'filter'],
   data(){
     return {
     }
   },
   methods: {
     handleClick(){
+      return // @TODO disabled cause action was intrusive on mobile
       if(this.$props.clickAction.includes('Comming soon'))
         location.replace(this.$props.clickAction);
       else
@@ -24,7 +25,9 @@ export default {
   mounted(){
     this.$refs.tile.style.height = this.$props.sizeY + "px";
     this.$refs.tile.style.width = this.$props.sizeX + "px";
-
+    if(Array.isArray(this.$props.filter)) {
+      this.$refs.tile.style.filter = `${this.$props.filter[0]}(${this.$props.filter[1]})`;
+    }
     if(this.$props.imgAsBackground) {
       this.$refs.tile.style.background = `url('${this.$props.imgSrc}')`;
     }

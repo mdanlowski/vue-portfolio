@@ -2,9 +2,9 @@
   div#artworks.animated.fadeIn
     div.section-info
       header
-      | Dear Visitor, thank you for your interest in this section.
-      | One of my hobbies is drawing. I'm also beginning my adventure with digital drawing and graphics.
-      | I've decided to share with you artworks presented here.
+        | Dear Visitor, thank you for your interest in this section.
+        | One of my hobbies is drawing. I'm also beginning my adventure with digital drawing and graphics.
+        | I've decided to share with you artworks presented here.
 
     div#md-artworks-grid
       div(v-for="artworkData in artworks").artwork-tile
@@ -14,8 +14,9 @@
           sizeY="600"
           :clickAction="artworkData.fullUrl"
           :imgAsBackground="true"
-          :imgSrc="require(`../assets/digital-arts/${(artworkData.thumbUrl)}`)"
+          :imgSrc="require(`../assets/digital-arts/${artworkData.thumbUrl}`)"
         )  
+          //- :filter="['grayscale', 1]"
           div.artwork-meta
             div
               h1 {{artworkData.title}}
@@ -131,6 +132,16 @@ export default {
   .artwork-tile {
     margin: auto;
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #artworks {
+    width: 100%;
+    margin: 0;
+  }
+  header {
+    font-size: 14px;
   }
 }
 
