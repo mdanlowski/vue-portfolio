@@ -1,9 +1,11 @@
 <template lang="pug">
 div.md-overlay-tile(ref="tile")
-  div.md-hoverable-overlay(@click="handleClick")
+  div.md-hoverable-overlay
     div.overlay-text {{overlayText}}
     div.md-hoverable-content(ref="content")
       slot
+      p.goto-full(@click="handleClick") Click here to open full image
+
 </template>
 
 <script>
@@ -15,7 +17,6 @@ export default {
   },
   methods: {
     handleClick(){
-      return // @TODO disabled cause action was intrusive on mobile
       if(this.$props.clickAction.includes('Comming soon'))
         location.replace(this.$props.clickAction);
       else
@@ -44,6 +45,13 @@ export default {
 //     // width: 
 //   }
 // }
+.goto-full {
+  color: transparent;
+  padding-left: 2em;
+  &:hover {
+    text-decoration: underline;
+  }
+}
 
 .md-overlay-tile {
   position: relative;
