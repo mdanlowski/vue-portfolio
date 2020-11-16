@@ -4,7 +4,7 @@
       //- router-link.nav-block(to="/") Home
       router-link.nav-block(to="/") About Me
       router-link.nav-block(to="/projects") Featured Projects
-      router-link.nav-block.minor(to="/artworks") Artworks
+      //- router-link.nav-block.minor(to="/artworks") Artworks
     main
       router-view
 
@@ -24,7 +24,7 @@
           a(href="mailto:marcindanlowski@gmail.com") &#9993;
         
         #cv-download
-          a(href="/cv-oct-19.pdf") cv
+          a(href="/cv.pdf") cv
 
 </template>
 
