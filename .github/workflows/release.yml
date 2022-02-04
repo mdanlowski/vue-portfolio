@@ -31,23 +31,26 @@ jobs:
           git clone https://github.com/mdanlowski/mdanlowski.github.io.git ../mdanlowski.github.io
 
       # Runs a single command using the runners shell
-      #- name: Build the project
-      #  run: |
-      #    npm install
-      #    npm run build
+      - name: Build the project
+        run: |
+          npm install
+          npm run build
           
       - name: Commit built files to the GHPages repo
         run: |
           ls -la ../
-          ls -la ../mdanlowski.github.io
           rm -rf ../mdanlowski.github.io/js ../mdanlowski.github.io/css ../mdanlowski.github.io/img
 
       # Runs a set of commands using the runners shell
-      #- name: Commit built files to the GHPages repo
-      #   run: |
-      #     rm -rf ../mdanlowski.github.io/js ../mdanlowski.github.io/css ../mdanlowski.github.io/img
-      #     cp -R ./dist/ ../mdanlowski.github.io/
-      #     git -C "../mdanlowski.github.io" status
-      #     git -C "../mdanlowski.github.io" add .
-      #     git -C "../mdanlowski.github.io" commit -am "Portfolio built with GHActions, v. $(date)"
-      #     git -C "../mdanlowski.github.io" push origin master
+      - name: Commit built files to the GHPages repo
+        run: |
+          rm -rf ../mdanlowski.github.io/js ../mdanlowski.github.io/css ../mdanlowski.github.io/img
+          cp -R ./dist/ ../mdanlowski.github.io/
+          git -C "../mdanlowski.github.io" status
+          git -C "../mdanlowski.github.io" add .
+          git -C "../mdanlowski.github.io" commit -am "Portfolio built with GHActions, v. $(date)"
+          git -C "../mdanlowski.github.io" push origin master
+      
+      # Ping me when ready
+      #- name: Some sort of notification here
+      #  run: 
