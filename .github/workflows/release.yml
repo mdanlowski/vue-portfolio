@@ -28,7 +28,7 @@ jobs:
       - name: Fetch GHPages repo
         run: |
           echo "GET IN MAH BELLEH"
-          git clone https://github.com/mdanlowski/mdanlowski.github.io.git ~/work/mdanlowski.github.io
+          git clone https://github.com/mdanlowski/mdanlowski.github.io.git ../mdanlowski.github.io
 
       # Runs a single command using the runners shell
       #- name: Build the project
