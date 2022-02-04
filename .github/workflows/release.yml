@@ -41,6 +41,11 @@ jobs:
           ls -la ../
           rm -rf ../mdanlowski.github.io/js ../mdanlowski.github.io/css ../mdanlowski.github.io/img
 
+      - name: Identity setup
+        run: |
+          git config --global user.email "marcindanlowski@gmail.com"
+          git config --global user.name "mdanlowski"
+
       # Runs a set of commands using the runners shell
       - name: Commit built files to the GHPages repo
         run: |
