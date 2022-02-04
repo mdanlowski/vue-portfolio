@@ -31,10 +31,10 @@ jobs:
           git clone https://github.com/mdanlowski/mdanlowski.github.io.git ~/work/mdanlowski.github.io
 
       # Runs a single command using the runners shell
-      - name: Build the project
-        run: |
-          npm install
-          npm run build
+      #- name: Build the project
+      #  run: |
+      #    npm install
+      #    npm run build
           
       - name: Commit built files to the GHPages repo
         run: |
