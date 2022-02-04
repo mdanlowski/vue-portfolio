@@ -28,16 +28,16 @@ jobs:
       - name: Fetch GHPages repo
         run: |
           echo "GET IN MAH BELLEH"
-          pwd
-          git clone https://github.com/mdanlowski/mdanlowski.github.io.git ~/mdanlowski.github.io
-          ls -la
+          git clone https://github.com/mdanlowski/mdanlowski.github.io.git ~/work/mdanlowski.github.io
 
       # Runs a single command using the runners shell
       - name: Build the project
-        run: npm run build
+        run: |
+          npm install
+          npm run build
 
       # Runs a set of commands using the runners shell
       - name: TODO - Commit built files to the GHPages repo
         run: |
           echo "where am ayyy?"
-          pwd
+          ls -la ./dist
