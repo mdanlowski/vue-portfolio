@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.1
         with:
-          node-version: 15.x
+          node-version: 12.0.0
 
       - name: Fetch GHPages repo
         run: |
@@ -37,7 +37,9 @@ jobs:
           npm run build
 
       # Runs a set of commands using the runners shell
-      - name: TODO - Commit built files to the GHPages repo
+      - name: Commit built files to the GHPages repo
         run: |
-          echo "where am ayyy?"
-          ls -la ./dist
+          rm -rf ~/work/mdanlowski.github.io/js ~/work/mdanlowski.github.io/css ~/work/mdanlowski.github.io/img
+          unalias cp
+          cp -R ./dist/ ~/work/mdanlowski.github.io/
+          git -C "~/work/mdanlowski.github.io/" status
