@@ -40,8 +40,8 @@ jobs:
       - name: Commit built files to the GHPages repo
         run: |
           rm -rf ../mdanlowski.github.io/js ../mdanlowski.github.io/css ../mdanlowski.github.io/img
-          cp -R ./dist/ ~/runner/work/mdanlowski.github.io/
-          git -C "~/runner/work/mdanlowski.github.io/" status
-          git -C "~/runner/work/mdanlowski.github.io/" add .
-          git -C "~/runner/work/mdanlowski.github.io/" commit -am "Portfolio built with GHActions, v. $(date)"
-          git -C "~/runner/work/mdanlowski.github.io/" push
+          cp -R ./dist/ ../mdanlowski.github.io/
+          git -C "../mdanlowski.github.io/" status
+          git -C "../mdanlowski.github.io/" add .
+          git -C "../mdanlowski.github.io/" commit -am "Portfolio built with GHActions, v. $(date)"
+          git -C "../mdanlowski.github.io/" push origin master
